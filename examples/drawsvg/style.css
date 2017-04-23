@@ -1,0 +1,33 @@
+html {
+  background: #f3f4f5;
+}
+body {
+  height: 5000px;
+}
+.logo-wrap {
+  position: fixed;
+  top: 1em;
+  bottom: 1em;
+  left: 1em;
+  right: 1em;
+  display: flex;
+}
+.logo {
+  position: position absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  max-height: 320px;
+  height: auto;
+}
+.logo path {
+  stroke: #787878;
+  stroke-width: 1;
+  fill-opacity: 0;
+  transition: fill-opacity 0.75s, stroke-opacity 0.75s;
+}
