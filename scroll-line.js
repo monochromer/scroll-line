@@ -85,10 +85,10 @@
         _requestTick: function() {
             var state = this._state;
             if(!state.ticking) {
-                // state.ticking = true;
+                state.ticking = true;
                 window.requestAnimationFrame(this._update);
             }
-            state.ticking = true;
+            // state.ticking = true;
         },
 
         _update: function() {
