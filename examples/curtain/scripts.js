@@ -31,9 +31,9 @@ Array.prototype.forEach.call(sceneElems, function (item, index) {
         left: item.querySelector('.scene__part_left'),
         right: item.querySelector('.scene__part_right'),
         fn: function (progress) {
-            if (this.freeze) {
-                return;
-            };
+            // if (this.freeze) {
+            //     return;
+            // };
 
             var left = this.left;
             var right = this.right;
@@ -43,8 +43,6 @@ Array.prototype.forEach.call(sceneElems, function (item, index) {
 
             left.style['transform'] = 'translate3d(' + -moveX + '%, 0, 0)';
             right.style['transform'] = 'translate3d(' + moveX + '%, 0, 0)';
-            // window.requestAnimationFrame(function () {
-            // })
         }
     });
 });

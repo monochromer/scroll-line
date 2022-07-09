@@ -28,14 +28,12 @@
     max: introBox.height / 4,
     freeze: false,
     fn: function(progress) {
-      if (this.freeze) return;
+      // if (this.freeze) return;
       var opacity = 100 - progress * 100;
       $sceneIntro.style['-webkit-filter'] = 'opacity(' + opacity + '%)';
       $sceneIntro.style['visibility'] = (opacity === 0) ? 'hidden' : 'visible';
       // remove this scene after the fade-out
       if (progress === 1) scenes.splice(0, 1);
-      // window.requestAnimationFrame(function() {
-      // });
     }
   });
 
@@ -46,13 +44,11 @@
     max: scenes[scenes.length - 1].max + aliceBox.top + aliceBox.height,
     freeze: false,
     fn: function(progress) {
-      if (this.freeze) return;
+      // if (this.freeze) return;
       var maxOffset = aliceBox.height - window.innerHeight;
       // var offset = -1 * Math.ceil((maxOffset * progress) / 100);
       var offset = -1 * Math.ceil((maxOffset * progress));
       $sceneAlice.style['transform'] = 'translate3d(0, ' + offset + 'px, 0)';
-      // window.requestAnimationFrame(function() {
-      // })
     }
   });
 
@@ -62,13 +58,11 @@
     max: scenes[scenes.length - 1].min * 1.4 + contentBox.top + contentBox.height,
     freeze: false,
     fn: function(progress) {
-      if (this.freeze)  return;
+      // if (this.freeze)  return;
       var maxOffset = aliceBox.height - contentBox.top;
       // var offset = Math.ceil((maxOffset * progress) / 100);
       var offset = Math.ceil((maxOffset * progress));
       $elContent.style['margin-top'] = offset + 'px';
-      // window.requestAnimationFrame(function() {
-      // })
     }
   });
 
@@ -78,18 +72,12 @@
     max: scenes[scenes.length - 1].max, // quick transition
     freeze: false,
     fn: function(progress) {
-      if (this.freeze) return;
+      // if (this.freeze) return;
       var opacity = progress * 100;
       $sceneOutro.style['-webkit-filter'] = 'opacity(' + opacity + '%)';
       $sceneOutro.style['visibility'] = (opacity === 0) ? 'hidden' : 'visible';
 
-      if (progress === 1) {
-        $sceneOutro.classList.add('complete')
-      } else {
-        $sceneOutro.classList.remove('complete')
-      }
-      // window.requestAnimationFrame(function() {
-      // })
+      $sceneOutro.classList.toggle('complete', progress === 1)
     }
   });
 

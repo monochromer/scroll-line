@@ -50,7 +50,7 @@ sections.forEach(function(item, index) {
         maxOpacity: 1,
         // factor: getFactor(item.querySelector('.hero-section__image')),
         fn: function (progress) {
-            if (this.freeze) return;
+            // if (this.freeze) return;
             // var move = (progress * (this.max - this.min) + this.min) * this.factor;
             var baseMove = (progress * (this.max - this.min));
             var moveImage = baseMove * 0.3;

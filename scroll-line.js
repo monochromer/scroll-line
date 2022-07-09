@@ -98,6 +98,14 @@
             this._state.ticking = false;
         },
 
+        _renderScene: function(scene, progress) {
+            if (scene.freeze) {
+                return
+            }
+            // scene.fn.call(scene, progress)
+            scene.fn(progress)
+        },
+
         _render: function(scroll) {
             var scene,
                 scenes = this._scenes,
@@ -108,16 +116,16 @@
                 if (scroll.y > scene.min && scroll.y < scene.max) {
                     var progress = (scroll.y - scene.min) / (scene.max - scene.min);
                     scene.freeze = false;
-                    scene.fn.call(scene, progress);
+                    this._renderScene(scene, progress);
                 };
 
                 if (scroll.y >= scene.max) {
-                    scene.fn.call(scene, 1);
+                    this._renderScene(scene, 1);
                     scene.freeze = true;
                 }
 
                 if (scroll.y <= scene.min) {
-                    scene.fn.call(scene, 0);
+                    this._renderScene(scene, 0);
                     scene.freeze = true;
                 }
             }

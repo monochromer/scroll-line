@@ -34,9 +34,9 @@ scrollLine.addScene({
         return pathLength;
     }),
     fn: function(progress) {
-        if (this.freeze) {
-            return;
-        };
+        // if (this.freeze) {
+        //     return;
+        // };
 
         for (var len = this.elems.length - 1; len >= 0; len -= 1) {
             var pathLength = this.lens[len],
